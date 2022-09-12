@@ -11,6 +11,12 @@
 		"@types/node": "^16.11.58",
 		"@types/react": "^18.0.18",
 		"@types/react-dom": "^18.0.6",
+<<<<<<< HEAD
+=======
+		"axios": "^0.27.2",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+>>>>>>> 3426677 (data access layer init)
 		"prettier": "^2.7.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
