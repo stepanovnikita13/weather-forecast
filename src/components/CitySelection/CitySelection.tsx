@@ -1,12 +1,7 @@
-export interface ICitySelectionProps {
-}
+export interface ICitySelectionProps {}
 
 const CitySelection: React.FC<ICitySelectionProps> = (props) => {
-	return (
-		<div>
-
-		</div>
-	)
+   return <div></div>
 }
 
 export default CitySelection
