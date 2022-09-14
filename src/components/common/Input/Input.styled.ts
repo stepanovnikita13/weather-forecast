@@ -25,6 +25,7 @@ export const Input = styled.input`
    padding: 0 6px;
    border: none;
    background-color: transparent;
+   color: ${({ theme }) => theme.colors.font};
    &:hover,
    &:focus,
    &:active {
