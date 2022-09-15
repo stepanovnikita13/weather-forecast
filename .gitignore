@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 /.vscode
-/.storybook
 /.husky
 .pnp.js
 

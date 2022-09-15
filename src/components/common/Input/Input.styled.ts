@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div``
-
-export const Box = styled.div`
+export const Wrapper = styled.div`
    width: 180px;
    height: 27px;
+`
+
+export const Box = styled.div`
+   height: 100%;
    border-radius: 8px;
    background-color: ${({ theme }) => theme.colors.background};
    border: 1px solid transparent;
@@ -22,6 +24,7 @@ export const Box = styled.div`
 export const Input = styled.input`
    width: 100%;
    height: 100%;
+   box-sizing: border-box;
    padding: 0 6px;
    border: none;
    background-color: transparent;
