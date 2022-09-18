@@ -20,5 +20,6 @@ export const GlobalStyle = createGlobalStyle`
 	input:-webkit-autofill:focus, 
 	input:-webkit-autofill:active{
 		transition: background-color 5000s ease-in-out 0s;
+		-webkit-text-fill-color: ${({ theme }) => theme.colors.font} !important;
 	}
 `
