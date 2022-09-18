@@ -1,25 +1,41 @@
+import COLORS from './colors'
+import variables, { TVariables } from './variables'
+
+const commonColors = {
+   disabled: '#ccc',
+}
+
 const theme = {
    light: {
-      background: '#DDE6EE',
-      font: '#242424',
+      background: COLORS.skyblue300,
+      backgroundContainer: COLORS.skyblue100,
+      backgroundDisabled: COLORS.greyBlue300,
+      font: COLORS.black900,
+      fontDisabled: COLORS.greyBlue500,
    },
    dark: {
-      background: '#2F3542',
-      font: '#ECECEC',
+      background: COLORS.darkblue500,
+      backgroundContainer: COLORS.darkblue400,
+      backgroundDisabled: COLORS.greyBlue700,
+      font: COLORS.white100,
+      fontDisabled: COLORS.greyBlue600,
    },
 }
 
 export const getTheme = (themeType: TThemeType): ITheme => ({
    colors: {
+      ...commonColors,
       ...theme[themeType],
    },
+   ...variables,
    themeType,
 })
 
-export type IThemeColors = typeof theme.light
+export type TThemeColors = typeof theme.light
+export type TCommonColors = typeof commonColors
 export type TThemeType = 'light' | 'dark'
-export interface ITheme {
-   colors: IThemeColors
+export interface ITheme extends TVariables {
+   colors: TThemeColors & TCommonColors
    themeType: TThemeType
 }
 

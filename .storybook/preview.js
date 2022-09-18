@@ -1,9 +1,9 @@
-import { ThemeProvider } from "styled-components"
+import styled, { css, ThemeProvider } from "styled-components"
+import { GlobalStyle } from '../src/styles/GlobalStyles'
 import {getTheme} from '../src/styles/theme'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-  layout: 'centered',
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -30,19 +30,34 @@ export const globalTypes = {
 		description: 'Global theme for Weather Forecact UI',
 		defaultValue: 'light',
 		toolbar: {
+			title: 'Theme',
 			icon: 'circlehollow',
-			items: ['light', 'dark'],
-			showName: true,
-			dynamicTitle: true
-		}
+			items: [
+				{ value: 'light', icon: 'circlehollow', title: 'light'},
+				{ value: 'dark', icon: 'circle', title: 'dark'}
+				],
+		},
 	}
 }
+
+const ThemeBlock = styled.div(({ theme }) =>
+	  css`
+		 position: absolute;
+		 inset: 0;
+		 overflow: auto;
+		 padding: 1rem;
+		 background: ${theme.colors.background};
+	  `
+ )
 
 const withTheme = (Story, context) => {
 	const theme = getTheme(context.globals.theme)
 	return (
 		<ThemeProvider theme={theme} >
-			<Story {...context} />
+			<GlobalStyle />
+			<ThemeBlock >
+				<Story {...context} />
+			</ThemeBlock>
 		</ThemeProvider>
 	)
 }

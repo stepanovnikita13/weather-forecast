@@ -1,38 +1,52 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-   width: 180px;
-   height: 27px;
+export type TWrapper = {
+   fullwidth?: boolean
+   error?: boolean
+}
+
+export const Wrapper = styled.div<TWrapper>`
+   width: ${(props) => (props.fullwidth ? '100%' : '180px')};
 `
 
-export const Box = styled.div`
-   height: 100%;
-   border-radius: 8px;
-   background-color: ${({ theme }) => theme.colors.background};
-   border: 1px solid transparent;
-   -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
-      0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-   -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
-      0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+export type TBox = {
+   disabled?: boolean
+}
+export const Box = styled.div<TBox>(
+   ({ disabled, theme }) => css`
+      display: flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background-color: ${disabled
+         ? theme.colors.backgroundDisabled
+         : theme.colors.backgroundContainer};
+      color: ${disabled ? theme.colors.fontDisabled : theme.colors.font};
+      border: 1px solid transparent;
+      -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+         0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+         0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
 
-   &:hover {
-      border: 1px solid rgba(0, 0, 0, 0.15);
-   }
-`
+      &:hover {
+         border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+   `
+)
 
 export const Input = styled.input`
    width: 100%;
-   height: 100%;
-   box-sizing: border-box;
-   padding: 0 6px;
    border: none;
    background-color: transparent;
-   color: ${({ theme }) => theme.colors.font};
+   color: inherit;
+   -webkit-tap-highlight-color: transparent;
+
    &:hover,
    &:focus,
    &:active {
-      outline: none;
+      outline: 0px;
    }
 `
 

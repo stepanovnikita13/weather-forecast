@@ -18,3 +18,15 @@ Label.args = {
    name: 'label',
    label: 'Label',
 }
+
+export const FullWidth = Template.bind({})
+FullWidth.args = {
+   name: 'fullwidth',
+   fullwidth: true,
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+   name: 'disabled',
+   disabled: true,
+}
