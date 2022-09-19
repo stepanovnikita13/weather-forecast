@@ -22,7 +22,7 @@ const theme = {
 	},
 }
 
-export const getTheme = (themeType: TThemeType): ITheme => ({
+export const getTheme = (themeType: TThemeType): TTheme => ({
 	colors: {
 		...commonColors,
 		...theme[themeType],
@@ -34,7 +34,7 @@ export const getTheme = (themeType: TThemeType): ITheme => ({
 export type TThemeColors = typeof theme.light
 export type TCommonColors = typeof commonColors
 export type TThemeType = 'light' | 'dark'
-export interface ITheme extends TVariables {
+export type TTheme = TVariables & {
 	colors: TThemeColors & TCommonColors
 	themeType: TThemeType
 }
