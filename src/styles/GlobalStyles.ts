@@ -22,4 +22,15 @@ export const GlobalStyle = createGlobalStyle`
 		transition: background-color 5000s ease-in-out 0s;
 		-webkit-text-fill-color: ${({ theme }) => theme.colors.font} !important;
 	}
+
+	.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 `
