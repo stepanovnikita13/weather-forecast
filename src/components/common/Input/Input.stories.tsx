@@ -4,16 +4,21 @@ import Input from './Input'
 export default {
 	component: Input,
 	title: 'Input',
+	args: {
+		name: 'input',
+		label: 'Search',
+		hideLabel: true,
+		placeholder: 'Type any text',
+	},
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
-Template.args = { name: 'input' }
 
 export const Default = Template.bind({})
 
 export const Label = Template.bind({})
 Label.args = {
-	label: 'Label',
+	hideLabel: false,
 }
 
 export const FullWidth = Template.bind({})
