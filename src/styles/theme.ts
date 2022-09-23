@@ -2,8 +2,9 @@ import COLORS from './colors'
 import variables, { TVariables } from './variables'
 
 const commonColors = {
-	elementBorder: COLORS.skyblue500,
+	borderFocus: COLORS.skyblue500,
 	error: COLORS.error,
+	primary: COLORS.primary500,
 }
 
 const theme = {
@@ -11,20 +12,20 @@ const theme = {
 		background: COLORS.skyblue300,
 		backgroundContainer: COLORS.skyblue100,
 		backgroundDisabled: COLORS.greyBlue300,
+		focusShadow: COLORS.skyblue500,
 		font: COLORS.black900,
 		fontDisabled: COLORS.greyBlue500,
 		placeholder: COLORS.greyBlue500,
-		shadowClick: COLORS.skyblue500,
 		textFieldOutline: COLORS.black_aplha20,
 	},
 	dark: {
 		background: COLORS.darkblue500,
 		backgroundContainer: COLORS.darkblue300,
 		backgroundDisabled: COLORS.greyBlue700,
+		focusShadow: COLORS.greyBlue600,
 		font: COLORS.white100,
 		fontDisabled: COLORS.greyBlue600,
 		placeholder: COLORS.darkblue400,
-		shadowClick: COLORS.greyBlue600,
 		textFieldOutline: COLORS.white_alpha40,
 	},
 }
