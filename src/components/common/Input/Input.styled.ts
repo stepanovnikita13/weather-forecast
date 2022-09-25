@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components/macro'
+import Shadow from '../Shadow/Shadow'
 
 export type TWrapper = {
-	fullwidth?: boolean
+	readonly fullwidth?: boolean
 }
 
 export const Wrapper = styled.div<TWrapper>`
@@ -17,7 +18,7 @@ export type TBox = {
 	error?: boolean
 	hideLabel?: boolean
 }
-export const Box = styled.div<TBox>(
+export const Box = styled(Shadow)<TBox>(
 	({ disabled, inFocus, error, hideLabel, theme }) => css`
 		position: relative;
 		display: inline-flex;
@@ -31,11 +32,6 @@ export const Box = styled.div<TBox>(
 		border: ${theme.sizes.control.borderWidth} solid
 			${error ? theme.colors.error : inFocus ? theme.colors.borderFocus : 'transparent'};
 		z-index: 0;
-		-webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
-			0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-		-moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
-			0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-		box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
 		&::before {
 			content: '';
 			position: absolute;
