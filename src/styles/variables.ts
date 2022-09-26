@@ -6,6 +6,7 @@ const variables = {
 		control: {
 			width: '180px',
 			borderWidth: '1px',
+			borderRadiusS: '4px',
 			borderRadius: '8px',
 		},
 	},
