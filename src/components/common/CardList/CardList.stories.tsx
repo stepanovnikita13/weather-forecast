@@ -24,3 +24,16 @@ Loading.args = {
 	loading: true,
 	params: [],
 }
+
+export const Wraped = Template.bind({})
+Wraped.decorators = [
+	(Story) => (
+		<div style={{ width: '400px' }}>
+			<Story />
+		</div>
+	),
+]
+Wraped.args = {
+	...Default.args,
+	wrap: true,
+}

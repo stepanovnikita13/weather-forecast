@@ -5,17 +5,18 @@ type TParams = { name: string; data: string }
 export interface ICardListProps {
 	loading: boolean
 	params: TParams[]
+	wrap?: boolean
 }
 
 const CardList: React.FC<ICardListProps> = (props) => {
-	const { loading, params } = props
+	const { loading, params, wrap } = props
 
 	if (loading) {
 		return <div>loading</div>
 	}
 
 	return (
-		<List>
+		<List wrap={wrap}>
 			{params.map((item, index) => (
 				<Item key={index}>
 					<Card title={item.name} value={item.data} />

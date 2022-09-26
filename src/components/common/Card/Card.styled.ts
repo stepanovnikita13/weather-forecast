@@ -6,20 +6,13 @@ export const Container = styled(Shadow)(
 	({ theme }) => css`
 		display: flex;
 		flex-flow: column-reverse nowrap;
-		min-width: 100px;
-		width: 33%;
-		height: 80px;
+		width: 100%;
+		height: 100%;
 		padding: 0.5em;
 		border-radius: ${theme.sizes.control.borderRadiusS};
 		background-color: ${theme.colors.backgroundContainer};
-
 		@media ${device.tabletS} {
-			width: 25%;
-			height: 120px;
-		}
-		@media ${device.laptopS} {
-			width: 200px;
-			height: 120px;
+			font-size: 1.2em;
 		}
 	`
 )
