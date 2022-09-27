@@ -22,6 +22,7 @@ const COLORS_SYSTEM = {
 	skyblue300: '#dde6ee',
 	skyblue400: '#deefff',
 	skyblue500: '#A2BCDB',
+	skyblue500_alpha75: 'rgba(162, 188, 219, .75)',
 
 	darkblue200: '#8D98A8',
 	darkblue300: '#57606f',
@@ -29,7 +30,6 @@ const COLORS_SYSTEM = {
 	darkblue500: '#2F3542',
 	darkblue600: '#222838',
 	darkblue700: '#171D2F',
-
 	darkblue400_alpha60: 'rgba(87, 96, 111, .6)',
 
 	greyBlue100: '#F8F9FA',

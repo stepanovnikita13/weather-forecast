@@ -1,15 +1,59 @@
+const BASE = 1
+const RATIO = 1.2
+const ms0 = 1
+const ms1 = RATIO
+const ms2 = RATIO * ms1
+const ms3 = RATIO * ms2
+const ms4 = RATIO * ms3
+
 const variables = {
-	sizes: {
-		font: {
-			size: '1em',
+	font: {
+		basePx: 16,
+		family: `'Hind',-apple-system, BlinkMacSystemFont, 'Helvetica', sans-serif`,
+		size: '1em',
+		h1: {
+			lineHeight: BASE * ms0,
+			size: BASE * ms4 + 'em',
+			weight: 400,
 		},
-		control: {
-			width: '180px',
-			borderWidth: '1px',
-			borderRadiusS: '4px',
-			borderRadius: '8px',
+		h2: {
+			lineHeight: BASE * ms1,
+			size: BASE * ms3 + 'em',
+			weight: 400,
+		},
+		h3: {
+			lineHeight: BASE * ms1,
+			size: BASE * ms2 + 'em',
+			weight: 500,
+		},
+		h4: {
+			lineHeight: 1,
+			size: BASE * ms1 + 'em',
+			weight: 600,
+		},
+		h5: {
+			lineHeight: 1,
+			size: BASE * ms0 + 'em',
+			weight: 600,
+		},
+		h6: {
+			lineHeight: 1,
+			size: BASE / ms1 + 'em',
+			weight: 700,
 		},
 	},
+	control: {
+		width: '180px',
+		borderWidth: '1px',
+		borderRadius: '4px',
+		borderRadiusLarge: '8px',
+		focusBorderWidth: '2px',
+	},
+	shadows: {
+		container: `0px 1px 6px 0px rgba(0, 0, 0, 0.2),
+								0px 1px 2px 0px rgba(0, 0, 0, 0.15)`,
+	},
+	zIndex: {},
 }
 
 export type TVariables = typeof variables

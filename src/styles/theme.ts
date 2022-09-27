@@ -2,35 +2,44 @@ import COLORS from './colors'
 import variables, { TVariables } from './variables'
 
 const commonColors = {
-	borderFocus: COLORS.skyblue500,
 	error: COLORS.error,
 	primary: COLORS.primary500,
 }
 
 const theme = {
 	light: {
-		background: COLORS.skyblue300,
-		backgroundContainer: COLORS.skyblue100,
-		backgroundDisabled: COLORS.greyBlue300,
-		foregroundAnimation: COLORS.greyBlue200,
-		focusShadow: COLORS.skyblue500,
-		font: COLORS.black900,
-		fontNote: COLORS.greyBlue600,
-		fontDisabled: COLORS.greyBlue500,
-		placeholder: COLORS.greyBlue500,
-		textFieldOutline: COLORS.black_aplha20,
+		action: {
+			focusBorder: COLORS.skyblue500_alpha75,
+			hoverBorder: COLORS.black_aplha20,
+		},
+		backgrounds: {
+			container: COLORS.skyblue100,
+			default: COLORS.skyblue300,
+			disabled: COLORS.greyBlue300,
+			loaderAnimation: COLORS.greyBlue200,
+		},
+		font: {
+			disabled: COLORS.greyBlue500,
+			primary: COLORS.darkblue500,
+			secondary: COLORS.greyBlue500,
+		},
 	},
 	dark: {
-		background: COLORS.darkblue500,
-		backgroundContainer: COLORS.darkblue300,
-		backgroundDisabled: COLORS.greyBlue700,
-		foregroundAnimation: COLORS.greyBlue600,
-		focusShadow: COLORS.greyBlue600,
-		font: COLORS.white100,
-		fontNote: COLORS.greyBlue500,
-		fontDisabled: COLORS.greyBlue600,
-		placeholder: COLORS.darkblue200,
-		textFieldOutline: COLORS.white_alpha40,
+		action: {
+			focusBorder: COLORS.skyblue500_alpha75,
+			hoverBorder: COLORS.white_alpha40,
+		},
+		backgrounds: {
+			container: COLORS.darkblue300,
+			default: COLORS.darkblue500,
+			disabled: COLORS.greyBlue700,
+			loaderAnimation: COLORS.greyBlue600,
+		},
+		font: {
+			primary: COLORS.white100,
+			disabled: COLORS.greyBlue600,
+			secondary: COLORS.greyBlue500,
+		},
 	},
 }
 

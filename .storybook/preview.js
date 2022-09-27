@@ -1,27 +1,15 @@
 import styled, { css, ThemeProvider } from "styled-components"
 import { GlobalStyle } from '../src/styles/GlobalStyles'
-import {getTheme} from '../src/styles/theme'
+import { getTheme } from '../src/styles/theme'
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-  backgrounds: {
-	default: 'light',
-	values: [
-		{
-			name: 'light',
-			value: '#DDE6EE'
+	actions: { argTypesRegex: "^on[A-Z].*" },
+	controls: {
+		matchers: {
+			color: /(background|color)$/i,
+			date: /Date$/,
 		},
-		{
-			name: 'dark',
-			value: '#2F3542'
-		}
-	]},
+	},
 }
 
 export const globalTypes = {
@@ -33,22 +21,22 @@ export const globalTypes = {
 			title: 'Theme',
 			icon: 'circlehollow',
 			items: [
-				{ value: 'light', icon: 'circlehollow', title: 'light'},
-				{ value: 'dark', icon: 'circle', title: 'dark'}
-				],
+				{ value: 'light', icon: 'circlehollow', title: 'light' },
+				{ value: 'dark', icon: 'circle', title: 'dark' }
+			],
 		},
 	}
 }
 
 const ThemeBlock = styled.div(({ theme }) =>
-	  css`
+	css`
 		 position: absolute;
 		 inset: 0;
 		 overflow: auto;
 		 padding: 1rem;
-		 background: ${theme.colors.background};
+		 background: ${theme.colors.backgrounds.default};
 	  `
- )
+)
 
 const withTheme = (Story, context) => {
 	const theme = getTheme(context.globals.theme)

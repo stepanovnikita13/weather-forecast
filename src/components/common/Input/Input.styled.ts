@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components/macro'
-import Shadow from '../Shadow/Shadow'
 
 export type TWrapper = {
 	readonly fullwidth?: boolean
@@ -7,8 +6,7 @@ export type TWrapper = {
 
 export const Wrapper = styled.div<TWrapper>`
 	position: relative;
-	width: ${({ theme, ...props }) =>
-		props.fullwidth ? '100%' : theme.sizes.control.width};
+	width: ${({ theme, ...props }) => (props.fullwidth ? '100%' : theme.control.width)};
 	margin: 0.5em 0;
 `
 
@@ -18,38 +16,38 @@ export type TBox = {
 	error?: boolean
 	hideLabel?: boolean
 }
-export const Box = styled(Shadow)<TBox>(
+export const Box = styled.div<TBox>(
 	({ disabled, inFocus, error, hideLabel, theme }) => css`
 		position: relative;
 		display: inline-flex;
 		width: 100%;
-		margin-top: ${!hideLabel && theme.sizes.font.size};
-		border-radius: ${theme.sizes.control.borderRadius};
+		margin-top: ${!hideLabel && theme.font.size};
+		border-radius: ${theme.control.borderRadius};
 		background-color: ${disabled
-			? theme.colors.backgroundDisabled
-			: theme.colors.backgroundContainer};
-		color: ${disabled ? theme.colors.fontDisabled : theme.colors.font};
-		border: ${theme.sizes.control.borderWidth} solid
-			${error ? theme.colors.error : inFocus ? theme.colors.borderFocus : 'transparent'};
+			? theme.colors.backgrounds.disabled
+			: theme.colors.backgrounds.container};
+		outline-style: solid;
+		outline-color: ${error
+			? theme.colors.error
+			: inFocus
+			? theme.colors.action.focusBorder
+			: 'transparent'};
+		outline-width: ${error
+			? theme.control.borderWidth
+			: inFocus
+			? theme.control.focusBorderWidth
+			: '0px'};
+		color: ${disabled ? theme.colors.font.disabled : theme.colors.font.primary};
 		z-index: 0;
-		&::before {
-			content: '';
-			position: absolute;
-			display: block;
-			inset: 0;
-			margin: -${theme.sizes.control.borderWidth};
-			z-index: -1;
-			border-radius: 8px;
-			opacity: ${inFocus ? 1 : 0};
-			transition: opacity 0.1s ease-in-out;
-			-webkit-box-shadow: 0px 0px 10px 0px ${theme.colors.focusShadow};
-			-moz-box-shadow: 0px 0px 10px 0px ${theme.colors.focusShadow};
-			box-shadow: 0px 0px 10px 0px ${theme.colors.focusShadow};
-		}
+		-webkit-box-shadow: ${theme.shadows.container};
+		-moz-box-shadow: ${theme.shadows.container};
+		box-shadow: ${theme.shadows.container};
 		&:hover {
-			outline: ${disabled || inFocus || error
-				? '0px'
-				: `${theme.sizes.control.borderWidth} solid ${theme.colors.textFieldOutline}`};
+			outline-width: ${!error && !inFocus && !disabled && theme.control.borderWidth};
+			outline-color: ${!error &&
+			!inFocus &&
+			!disabled &&
+			theme.colors.action.hoverBorder};
 		}
 		&:disabled {
 			outline: none;
@@ -80,7 +78,7 @@ export const Input = styled.input<TInput>(
 		}
 
 		&::placeholder {
-			color: ${theme.colors.placeholder};
+			color: ${theme.colors.font.secondary};
 			opacity: ${hideLabel || inFocus ? 1 : 0};
 		}
 	`
@@ -95,11 +93,11 @@ export const Label = styled.label<TLabel>(
 		display: block;
 		position: absolute;
 		transform: ${!active
-			? `translate(11px, calc(100% + 1em + ${theme.sizes.control.borderWidth}))`
+			? `translate(11px, calc(100% + 1em + ${theme.control.borderWidth}))`
 			: 'translate(3px, 0px)'};
 		transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
 		pointer-events: none;
-		color: ${active ? theme.colors.font : theme.colors.placeholder};
+		color: ${active ? theme.colors.font : theme.colors.font.secondary};
 		z-index: 1;
 	`
 )
