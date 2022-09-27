@@ -2,6 +2,12 @@ import Card from '../Card/Card'
 import CardLoader from '../Card/Card.loader'
 import { Item, List } from './CardList.styled'
 
+const CardsLoader = [1, 2, 3, 4].map((item) => (
+	<Item key={item}>
+		<CardLoader />
+	</Item>
+))
+
 type TParams = { name: string; data: string }
 export interface ICardListProps {
 	loading: boolean
@@ -20,11 +26,7 @@ const CardList: React.FC<ICardListProps> = (props) => {
 							<Card title={item.name} value={item.data} />
 						</Item>
 				  ))
-				: [1, 2, 3, 4].map((item) => (
-						<Item key={item}>
-							<CardLoader />
-						</Item>
-				  ))}
+				: CardsLoader}
 		</List>
 	)
 }

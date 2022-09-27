@@ -29,7 +29,7 @@ const theme = {
 		font: COLORS.white100,
 		fontNote: COLORS.greyBlue500,
 		fontDisabled: COLORS.greyBlue600,
-		placeholder: COLORS.darkblue400,
+		placeholder: COLORS.darkblue200,
 		textFieldOutline: COLORS.white_alpha40,
 	},
 }
