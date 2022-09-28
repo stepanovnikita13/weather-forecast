@@ -10,6 +10,13 @@ export default {
 		hideLabel: true,
 		placeholder: 'Type any text',
 	},
+	decorators: [
+		(Story) => (
+			<div style={{ padding: '1rem' }}>
+				<Story />
+			</div>
+		),
+	],
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />

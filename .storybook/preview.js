@@ -33,7 +33,6 @@ const ThemeBlock = styled.div(({ theme }) =>
 		 position: absolute;
 		 inset: 0;
 		 overflow: auto;
-		 padding: 1rem;
 		 background: ${theme.colors.backgrounds.default};
 	  `
 )

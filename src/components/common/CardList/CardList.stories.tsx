@@ -4,6 +4,13 @@ import CardList from './CardList'
 export default {
 	component: CardList,
 	title: 'Card list',
+	decorators: [
+		(Story) => (
+			<div style={{ padding: '1rem' }}>
+				<Story />
+			</div>
+		),
+	],
 } as ComponentMeta<typeof CardList>
 
 const Template: ComponentStory<typeof CardList> = (args) => <CardList {...args} />
