@@ -54,6 +54,9 @@ const variables = {
 								0px 1px 2px 0px rgba(0, 0, 0, 0.15)`,
 	},
 	zIndex: {},
+	indent(i: number) {
+		return `calc(${i * 0.5} * 1rem)`
+	},
 }
 
 export type TVariables = typeof variables
