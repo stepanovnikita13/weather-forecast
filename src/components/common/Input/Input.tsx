@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { InputHTMLAttributes, useState } from 'react'
 import { Wrapper, Input as InputStyled, Label, Box } from './Input.styled'
 
-export interface IInputProps {
+export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	name: string
 	label: string
 	hideLabel?: boolean
 	fullwidth?: boolean
 	disabled?: boolean
 	error?: boolean
-	[key: string]: any
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input: React.FC<IInputProps> = (props) => {
-	const { name, label, fullwidth, disabled, error, hideLabel, ...rest } = props
+	const { name, label, fullwidth, disabled, error, hideLabel, onChange, ...rest } = props
 	const [focused, setFocused] = useState<boolean>(false)
-	const [value, setValue] = useState<string>('')
+	const [empty, setEmpty] = useState<boolean>(true)
 
 	const handlerFocus = (e: React.FocusEvent<HTMLInputElement>) => {
 		setFocused(true)
@@ -23,14 +23,16 @@ const Input: React.FC<IInputProps> = (props) => {
 		setFocused(false)
 	}
 	const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setValue(e.target.value)
+		setEmpty(!e.target.value)
+		if (onChange) {
+			onChange(e)
+		}
 	}
 	return (
 		<Wrapper fullwidth={fullwidth}>
 			<Label
 				htmlFor={name}
-				active={focused || value.length > 0}
-				hideLabel={Boolean(hideLabel)}
+				active={focused || !empty}
 				className={hideLabel ? 'hidden' : ''}
 			>
 				{label}
@@ -42,11 +44,10 @@ const Input: React.FC<IInputProps> = (props) => {
 					disabled={disabled}
 					hideLabel={hideLabel}
 					inFocus={focused}
-					{...rest}
-					type='text'
 					onFocus={handlerFocus}
 					onBlur={handlerBlur}
 					onChange={handlerChange}
+					{...rest}
 				/>
 			</Box>
 		</Wrapper>

@@ -86,7 +86,6 @@ export const Input = styled.input<TInput>(
 
 export type TLabel = {
 	active: boolean
-	hideLabel: boolean
 }
 export const Label = styled.label<TLabel>(
 	({ active, theme }) => css`
