@@ -9,10 +9,21 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	disabled?: boolean
 	error?: boolean
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 const Input: React.FC<IInputProps> = (props) => {
-	const { name, label, fullwidth, disabled, error, hideLabel, onChange, ...rest } = props
+	const {
+		name,
+		label,
+		fullwidth,
+		disabled,
+		error,
+		hideLabel,
+		onChange,
+		onBlur,
+		...rest
+	} = props
 	const [focused, setFocused] = useState<boolean>(false)
 	const [empty, setEmpty] = useState<boolean>(true)
 
@@ -21,6 +32,9 @@ const Input: React.FC<IInputProps> = (props) => {
 	}
 	const handlerBlur = (e: React.FocusEvent<HTMLInputElement>) => {
 		setFocused(false)
+		if (onBlur) {
+			onBlur(e)
+		}
 	}
 	const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setEmpty(!e.target.value)
