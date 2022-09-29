@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import city from './locationSlice'
 
 export const store = configureStore({
-	reducer: {},
+	reducer: {
+		city,
+	},
 })
 
 export type RootState = ReturnType<typeof store.getState>

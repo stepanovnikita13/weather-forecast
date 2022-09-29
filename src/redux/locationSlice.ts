@@ -10,44 +10,55 @@ enum Status {
 	FAILED,
 }
 
-interface CitySearchState {
+interface LocationState {
 	locationList: ILocation[]
 	location: ILocation | null
 	status: Status
-	error: string | null
+	error: string | null | undefined
 }
 
-const initialState: CitySearchState = {
+const initialState: LocationState = {
 	locationList: [],
 	location: null,
 	status: Status.IDLE,
 	error: null,
 }
 
-export const CitySearchSlice = createSlice({
+export const locationSlice = createSlice({
 	name: 'weather',
 	initialState,
 	reducers: {},
 	extraReducers(builder) {
-		builder.addCase(fetchLocations.pending, (state) => {
-			state.status = Status.LOADING
-		})
+		builder
+			.addCase(fetchLocations.pending, (state) => {
+				state.status = Status.LOADING
+			})
+			.addCase(fetchLocations.fulfilled, (state, action) => {
+				state.status = Status.SUCCESSFULL
+				state.locationList = action.payload
+			})
+			.addCase(fetchLocations.rejected, (state, action) => {
+				state.status = Status.FAILED
+				state.error = action.error.message
+			})
 	},
 })
 
 export const fetchLocations = createAsyncThunk(
 	'citySearch/fetchLocations',
-	async (locationName: string) => {
+	async (locationName: string, { rejectWithValue }) => {
 		try {
 			const res = await weatherAPI.getLocation(locationName)
 			return res.data
 		} catch (err) {
 			if (axios.isAxiosError(err)) {
-				return err.message
+				return rejectWithValue(err.message)
 			} else {
 				console.log(err)
-				return 'Unknown error!'
+				return rejectWithValue('Unknown error!')
 			}
 		}
 	}
 )
+
+export default locationSlice.reducer
