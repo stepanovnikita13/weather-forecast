@@ -32,7 +32,6 @@ export interface ILocation {
 }
 export type TGeocodingResponse = Array<ILocation>
 
-
 export interface IWeather {
 	id: number
 	main: string
