@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState } from 'react'
+import React, { InputHTMLAttributes, useState, forwardRef } from 'react'
 import { Wrapper, Input as InputStyled, Label, Box } from './Input.styled'
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -12,7 +12,9 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<IInputProps> = (props) => {
+export type Ref = HTMLInputElement
+
+const Input = forwardRef<Ref, IInputProps>((props, ref) => {
 	const {
 		name,
 		label,
@@ -53,6 +55,7 @@ const Input: React.FC<IInputProps> = (props) => {
 			</Label>
 			<Box disabled={disabled} error={error} hideLabel={hideLabel} inFocus={focused}>
 				<InputStyled
+					ref={ref}
 					id={name}
 					aria-label={label}
 					disabled={disabled}
@@ -66,6 +69,6 @@ const Input: React.FC<IInputProps> = (props) => {
 			</Box>
 		</Wrapper>
 	)
-}
+})
 
 export default Input
