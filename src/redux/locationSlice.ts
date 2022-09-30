@@ -25,7 +25,7 @@ const initialState: LocationState = {
 }
 
 export const locationSlice = createSlice({
-	name: 'weather',
+	name: 'location',
 	initialState,
 	reducers: {},
 	extraReducers(builder) {
