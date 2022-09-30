@@ -6,7 +6,7 @@ import { ILocation } from '../api/api-types'
 enum Status {
 	IDLE,
 	LOADING,
-	SUCCESSFULL,
+	SUCCESSFUL,
 	FAILED,
 }
 
@@ -25,7 +25,7 @@ const initialState: LocationState = {
 }
 
 export const locationSlice = createSlice({
-	name: 'weather',
+	name: 'location',
 	initialState,
 	reducers: {},
 	extraReducers(builder) {
@@ -34,7 +34,7 @@ export const locationSlice = createSlice({
 				state.status = Status.LOADING
 			})
 			.addCase(fetchLocations.fulfilled, (state, action) => {
-				state.status = Status.SUCCESSFULL
+				state.status = Status.SUCCESSFUL
 				state.locationList = action.payload
 			})
 			.addCase(fetchLocations.rejected, (state, action) => {
@@ -47,6 +47,9 @@ export const locationSlice = createSlice({
 export const fetchLocations = createAsyncThunk(
 	'citySearch/fetchLocations',
 	async (locationName: string, { rejectWithValue }) => {
+		if (!locationName) {
+			return []
+		}
 		try {
 			const res = await weatherAPI.getLocation(locationName)
 			return res.data
