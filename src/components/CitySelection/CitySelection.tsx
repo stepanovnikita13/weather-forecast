@@ -1,7 +1,9 @@
 import Container from '../common/Container/Container'
-import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import Input from '../common/Input/Input'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { useDispatch } from '../../hooks'
+import { fetchLocations } from '../../redux/locationSlice'
 
 export interface ICitySelectionProps {}
 interface IFormInputs {
@@ -10,23 +12,26 @@ interface IFormInputs {
 
 const CitySelection: React.FC<ICitySelectionProps> = (props) => {
 	const { handleSubmit, watch, control } = useForm<IFormInputs>()
+	const dispatch = useDispatch()
 	const targetValue = watch('location')
+	const memoOnSubmit = useCallback(
+		(data: IFormInputs) => dispatch(fetchLocations(data.location)),
+		[dispatch]
+	)
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			if (targetValue) {
-				handleSubmit(onSubmit)()
+				handleSubmit(memoOnSubmit)()
 			}
 		}, 1000)
 		return () => clearTimeout(timer)
-	}, [targetValue, handleSubmit])
-
-	const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data)
+	}, [targetValue, handleSubmit, memoOnSubmit])
 
 	return (
 		<Container pb={3}>
 			<h3>Type your location</h3>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(memoOnSubmit)}>
 				<Controller
 					name='location'
 					control={control}
