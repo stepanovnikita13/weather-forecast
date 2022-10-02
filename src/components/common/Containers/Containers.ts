@@ -5,9 +5,8 @@ export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 	pb?: 1 | 2 | 3 | 4 | 5
 }
 
-const Container = styled.div<IContainerProps>`
+export const Container = styled.div<IContainerProps>`
 	width: 100%;
-	min-width: 320px;
 	padding-inline: 1rem;
 	padding-block: ${({ pb, theme }) => pb && theme.indent(pb)};
 	@media ${device.tabletS} {
@@ -18,9 +17,14 @@ const Container = styled.div<IContainerProps>`
 	}
 	@media ${device.laptopM} {
 		padding-inline: 0;
+	}
+`
+
+export const Wrapper = styled.div`
+	width: 100%;
+	min-width: 320px;
+	@media ${device.laptopM} {
 		margin-inline: auto;
 		max-width: 1300px;
 	}
 `
-
-export default Container
