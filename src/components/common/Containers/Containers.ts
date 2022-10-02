@@ -3,20 +3,20 @@ import { device } from '../../../styles/device'
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 	pb?: 1 | 2 | 3 | 4 | 5
+	indentLess?: boolean
 }
 
 export const Container = styled.div<IContainerProps>`
-	width: 100%;
-	padding-inline: 1rem;
+	margin-inline: ${({ indentLess }) => (indentLess ? '0 !important' : '1rem')};
 	padding-block: ${({ pb, theme }) => pb && theme.indent(pb)};
 	@media ${device.tabletS} {
-		padding-inline: 1.5rem;
+		margin-inline: 1.5rem;
 	}
 	@media ${device.laptopS} {
-		padding-inline: 2rem;
+		margin-inline: 2rem;
 	}
 	@media ${device.laptopM} {
-		padding-inline: 0;
+		margin-inline: 0;
 	}
 `
 
