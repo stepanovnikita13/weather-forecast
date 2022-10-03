@@ -1,5 +1,5 @@
 {
   "plugins": [
-		["macros"]
+		["babel-plugin-styled-components"]
 	]
 }
