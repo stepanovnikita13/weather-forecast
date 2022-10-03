@@ -1,15 +1,20 @@
 import { Outlet } from 'react-router-dom'
+import CitySelection from '../../components/CitySelection/CitySelection'
+import { Main, RootWrapper, Sidebar } from './Root.styled'
 
 export interface IRootProps {}
 
 const Root: React.FC<IRootProps> = (props) => {
 	return (
-		<>
-			<div>Location choise</div>
-			<div>
+		<RootWrapper>
+			<Sidebar id='sidebar' hidden>
+				<CitySelection />
+			</Sidebar>
+			<Main id='main'>
+				Weather data
 				<Outlet />
-			</div>
-		</>
+			</Main>
+		</RootWrapper>
 	)
 }
 
