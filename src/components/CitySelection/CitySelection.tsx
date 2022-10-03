@@ -1,4 +1,3 @@
-import Container from '../common/Container/Container'
 import { useForm, Controller } from 'react-hook-form'
 import Input from '../common/Input/Input'
 import React, { useCallback, useEffect } from 'react'
@@ -29,20 +28,24 @@ const CitySelection: React.FC<ICitySelectionProps> = (props) => {
 	}, [targetValue, handleSubmit, memoOnSubmit])
 
 	return (
-		<Container pb={3}>
-			<h3>Type your location</h3>
+		<>
 			<form onSubmit={handleSubmit(memoOnSubmit)}>
 				<Controller
 					name='location'
 					control={control}
 					defaultValue=''
 					render={({ field }) => (
-						<Input label='location' placeholder='Moscow' hideLabel fullwidth {...field} />
+						<Input
+							label='location'
+							placeholder='Search location'
+							hideLabel
+							fullwidth
+							{...field}
+						/>
 					)}
 				/>
 			</form>
-			Location list here
-		</Container>
+		</>
 	)
 }
 

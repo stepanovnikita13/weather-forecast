@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { Wrapper } from './components/common/Containers/Containers'
 import ErrorPage from './ErrorPage'
 import Root from './routes/Root/Root'
 import { GlobalStyle } from './styles/GlobalStyles'
@@ -21,10 +22,12 @@ const router = createBrowserRouter([
 
 function App() {
 	return (
-		<ThemeProvider theme={getTheme('light')}>
-			<GlobalStyle />
-			<RouterProvider router={router} />
-		</ThemeProvider>
+		<Wrapper>
+			<ThemeProvider theme={getTheme('light')}>
+				<GlobalStyle />
+				<RouterProvider router={router} />
+			</ThemeProvider>
+		</Wrapper>
 	)
 }
 

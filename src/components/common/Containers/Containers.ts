@@ -23,6 +23,7 @@ export const Container = styled.div<IContainerProps>`
 export const Wrapper = styled.div`
 	width: 100%;
 	min-width: 320px;
+	height: 100vh;
 	@media ${device.laptopM} {
 		margin-inline: auto;
 		max-width: 1300px;
