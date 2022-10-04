@@ -15,17 +15,14 @@ export const Container = styled.div<IContainerProps>`
 	@media ${device.laptopS} {
 		margin-inline: 2rem;
 	}
-	@media ${device.laptopM} {
-		margin-inline: 0;
-	}
 `
 
 export const Wrapper = styled.div`
 	width: 100%;
 	min-width: 320px;
 	height: 100vh;
-	@media ${device.laptopM} {
+	@media ${device.laptopL} {
 		margin-inline: auto;
-		max-width: 1300px;
+		max-width: 1366px;
 	}
 `

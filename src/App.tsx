@@ -1,10 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
 import { Wrapper } from './components/common/Containers/Containers'
 import ErrorPage from './ErrorPage'
+import useMediaQuery from './hooks/useMediaQuery'
 import Root from './routes/Root/Root'
-import { GlobalStyle } from './styles/GlobalStyles'
-import { getTheme } from './styles/theme'
+import { device } from './styles/device'
 
 const router = createBrowserRouter([
 	{
@@ -21,12 +20,10 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+	const isMobile = !useMediaQuery(device.tabletL)
 	return (
 		<Wrapper>
-			<ThemeProvider theme={getTheme('light')}>
-				<GlobalStyle />
-				<RouterProvider router={router} />
-			</ThemeProvider>
+			<RouterProvider router={router} />
 		</Wrapper>
 	)
 }
