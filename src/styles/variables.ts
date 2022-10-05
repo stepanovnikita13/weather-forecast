@@ -43,17 +43,23 @@ const variables = {
 		},
 	},
 	control: {
-		width: '180px',
 		borderWidth: '1px',
 		borderRadius: '4px',
 		borderRadiusLarge: '8px',
 		focusBorderWidth: '2px',
+		width: '180px',
+		headerHeight: {
+			mobile: '40px',
+			tablet: '50px',
+		},
 	},
 	shadows: {
 		container: `0px 1px 6px 0px rgba(0, 0, 0, 0.2),
 								0px 1px 2px 0px rgba(0, 0, 0, 0.15)`,
 	},
-	zIndex: {},
+	zIndex: {
+		sidebar: 1000,
+	},
 	indent(i: number) {
 		return `calc(${i * 0.5} * 1rem)`
 	},

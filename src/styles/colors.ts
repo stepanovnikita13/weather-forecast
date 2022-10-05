@@ -16,6 +16,11 @@ const COLORS_SYSTEM = {
 	black: '#000',
 	black900: '#242424',
 	black_aplha20: 'rgba(0, 0, 0, .2)',
+	black_aplha40: 'rgba(0, 0, 0, .4)',
+	black_aplha50: 'rgba(0, 0, 0, .5)',
+	black_aplha60: 'rgba(0, 0, 0, .6)',
+	black_aplha70: 'rgba(0, 0, 0, .7)',
+	black_aplha80: 'rgba(0, 0, 0, .8)',
 
 	skyblue100: '#f5f5f5',
 	skyblue200: '#eef3f7',
