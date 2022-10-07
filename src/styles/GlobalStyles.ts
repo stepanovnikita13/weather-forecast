@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle(
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			color: ${theme.colors.font.primary};
+			background-color: ${theme.colors.backgrounds.default};
 		}
 
 		code {
@@ -33,6 +34,15 @@ export const GlobalStyle = createGlobalStyle(
 		h4 {
 			margin-bottom: 0.7em;
 		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 0;
+		}
+
 		${headings.map(
 			(h: THeadings) => `
 		${h} {

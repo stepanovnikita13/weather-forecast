@@ -17,6 +17,8 @@ const theme = {
 			default: COLORS.skyblue300,
 			disabled: COLORS.greyBlue300,
 			loaderAnimation: COLORS.greyBlue200,
+			overlay: COLORS.black_aplha50,
+			sidebar: COLORS.greyBlue400,
 		},
 		font: {
 			disabled: COLORS.greyBlue500,
@@ -34,6 +36,8 @@ const theme = {
 			default: COLORS.darkblue500,
 			disabled: COLORS.greyBlue700,
 			loaderAnimation: COLORS.greyBlue600,
+			overlay: COLORS.black_aplha60,
+			sidebar: COLORS.darkblue600,
 		},
 		font: {
 			primary: COLORS.white100,
