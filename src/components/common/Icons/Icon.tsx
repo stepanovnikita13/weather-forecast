@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components/macro'
 
 const SIZES = {
 	xs: '1rem',
-	s: '1.5rem',
-	m: '2rem',
-	l: '4rem',
-	xl: '8rem',
-	xxl: '16rem',
+	s: '1.2rem',
+	m: '1.728rem',
+	l: '2.488rem',
+	xl: '3.583rem',
+	xxl: '5.159rem',
 }
 
 export type TIconNames =
