@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes, useState, forwardRef } from 'react'
-import { Wrapper, Input as InputStyled, Label, Box } from './Input.styled'
+import { Box } from '../Layout/Layout'
+import { Wrapper, Input as InputStyled, Label, FieldBox } from './Input.styled'
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	name: string
@@ -53,19 +54,26 @@ const Input = forwardRef<Ref, IInputProps>((props, ref) => {
 			>
 				{label}
 			</Label>
-			<Box disabled={disabled} error={error} hideLabel={hideLabel} inFocus={focused}>
-				<InputStyled
-					ref={ref}
-					id={name}
-					aria-label={label}
+			<Box>
+				<FieldBox
 					disabled={disabled}
+					error={error}
 					hideLabel={hideLabel}
 					inFocus={focused}
-					onFocus={handlerFocus}
-					onBlur={handlerBlur}
-					onChange={handlerChange}
-					{...rest}
-				/>
+				>
+					<InputStyled
+						ref={ref}
+						id={name}
+						aria-label={label}
+						disabled={disabled}
+						hideLabel={hideLabel}
+						inFocus={focused}
+						onFocus={handlerFocus}
+						onBlur={handlerBlur}
+						onChange={handlerChange}
+						{...rest}
+					/>
+				</FieldBox>
 			</Box>
 		</Wrapper>
 	)

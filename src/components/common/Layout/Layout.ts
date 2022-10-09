@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components/macro'
 import { device } from '../../../styles/device'
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,3 +26,16 @@ export const Wrapper = styled.div`
 		max-width: 1366px;
 	}
 `
+
+export interface IBox extends React.HTMLAttributes<HTMLDivElement> {
+	shadow?: 's' | 'm' | 'l'
+}
+export const Box = styled.div<IBox>(
+	({ theme, shadow = 's' }) => css`
+		width: 100%;
+		height: 100%;
+		box-shadow: ${theme.shadows[shadow]};
+		-webkit-box-shadow: ${theme.shadows[shadow]};
+		-moz-box-shadow: ${theme.shadows[shadow]};
+	`
+)

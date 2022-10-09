@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { Container } from '../../components/common/Containers/Containers'
+import { Container } from '../../components/common/Layout/Layout'
 import Location from '../../components/Location/Location'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import useMediaQuery from '../../hooks/useMediaQuery'

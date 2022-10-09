@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
 import { device } from '../../styles/device'
-import { Container } from '../common/Containers/Containers'
+import { Container } from '../common/Layout/Layout'
 
 export const SidebarContainer = styled.div`
 	position: fixed;
