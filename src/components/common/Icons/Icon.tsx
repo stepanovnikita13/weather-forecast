@@ -34,7 +34,7 @@ const Icon: React.FC<IIconProps> = (props) => {
 	const Svg = styled.svg(
 		({ theme }) => css`
 			& path {
-				fill: ${color || theme.colors.font.primary};
+				fill: ${color || theme.colors.font.secondary};
 			}
 		`
 	)

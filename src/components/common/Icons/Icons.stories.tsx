@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useTheme } from 'styled-components'
 import Icon, { TIconNames } from './Icon'
 
 const iconNames = [
@@ -50,41 +51,45 @@ export default {
 
 const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
-const TemplateLibrary: ComponentStory<typeof Icon> = (args) => (
-	<div
-		style={{
-			display: 'flex',
-			flexFlow: 'row wrap',
-			gap: '10px',
-			justifyContent: 'flex-start',
-		}}
-	>
-		{iconNames.map((item) => (
-			<div
-				key={item}
-				style={{
-					position: 'relative',
-					padding: '30px 30px 10px',
-					backgroundColor: 'white',
-					borderRadius: '3px',
-				}}
-			>
+const TemplateLibrary: ComponentStory<typeof Icon> = (args) => {
+	const theme = useTheme()
+
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexFlow: 'row wrap',
+				gap: '10px',
+				justifyContent: 'flex-start',
+			}}
+		>
+			{iconNames.map((item) => (
 				<div
+					key={item}
 					style={{
-						position: 'absolute',
-						width: '100%',
-						left: 0,
-						top: 10,
-						textAlign: 'center',
+						position: 'relative',
+						padding: '30px 30px 10px',
+						backgroundColor: theme.colors.backgrounds.container,
+						borderRadius: '3px',
 					}}
 				>
-					<h5>{item}</h5>
+					<div
+						style={{
+							position: 'absolute',
+							width: '100%',
+							left: 0,
+							top: 10,
+							textAlign: 'center',
+						}}
+					>
+						<h5>{item}</h5>
+					</div>
+					<Icon name={item as TIconNames} {...args} />
 				</div>
-				<Icon name={item as TIconNames} {...args} />
-			</div>
-		))}
-	</div>
-)
+			))}
+		</div>
+	)
+}
 
 export const Default = Template.bind({})
 Default.args = {

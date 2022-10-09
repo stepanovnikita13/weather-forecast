@@ -3,7 +3,10 @@ import variables, { TVariables } from './variables'
 
 const commonColors = {
 	error: COLORS.error,
+	info: COLORS.info,
 	primary: COLORS.primary500,
+	success: COLORS.success,
+	warning: COLORS.warning,
 }
 
 const theme = {
@@ -40,8 +43,8 @@ const theme = {
 			sidebar: COLORS.darkblue600,
 		},
 		font: {
-			primary: COLORS.white100,
 			disabled: COLORS.greyBlue600,
+			primary: COLORS.white100,
 			secondary: COLORS.greyBlue500,
 		},
 	},
