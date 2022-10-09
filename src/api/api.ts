@@ -21,6 +21,7 @@ export const weatherAPI = {
 		const params: IGeocodingParams = {
 			q,
 			appid: API_KEY,
+			limit: 5,
 		}
 		const res = await axios.get<TGeocodingResponse>(
 			'http://api.openweathermap.org/geo/1.0/direct',
