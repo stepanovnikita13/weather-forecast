@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Provider } from 'react-redux'
-import CitySelection from './CitySelection'
+import LocationSelectForm from './LocationSelectForm'
 
 export const MockedState = {
 	locationList: [
@@ -37,13 +37,13 @@ const Mockstore = ({ state, children }: TMockstoreProps) => (
 )
 
 export default {
-	component: CitySelection,
-	title: 'City selection',
+	component: LocationSelectForm,
+	title: 'Location select',
 	excludeStories: /.*MockedState$/,
-} as ComponentMeta<typeof CitySelection>
+} as ComponentMeta<typeof LocationSelectForm>
 
-const Template: ComponentStory<typeof CitySelection> = (args) => (
-	<CitySelection {...args} />
+const Template: ComponentStory<typeof LocationSelectForm> = (args) => (
+	<LocationSelectForm {...args} />
 )
 
 export const Default = Template.bind({})

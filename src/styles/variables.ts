@@ -54,8 +54,12 @@ const variables = {
 		},
 	},
 	shadows: {
-		container: `0px 1px 6px 0px rgba(0, 0, 0, 0.2),
-								0px 1px 2px 0px rgba(0, 0, 0, 0.15)`,
+		s: `0px 1px 6px 0px rgba(0, 0, 0, 0.2),
+		0px 1px 2px 0px rgba(0, 0, 0, 0.15)`,
+		m: `0px 1px 12px 0px rgba(0, 0, 0, 0.2),
+		0px 2px 3px 0px rgba(0, 0, 0, 0.12)`,
+		l: `0px 3px 18px 0px rgba(0, 0, 0, 0.2),
+		0px 3px 4px 0px rgba(0, 0, 0, 0.1)`,
 	},
 	zIndex: {
 		sidebar: 1000,

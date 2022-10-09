@@ -1,15 +1,15 @@
 import { useForm, Controller } from 'react-hook-form'
-import Input from '../common/Input/Input'
+import Input from '../../common/Input/Input'
 import React, { useCallback, useEffect } from 'react'
-import { useDispatch } from '../../hooks'
-import { fetchLocations } from '../../redux/locationSlice'
+import { useDispatch } from '../../../hooks'
+import { fetchLocations } from '../../../redux/locationSlice'
 
-export interface ICitySelectionProps {}
+export interface ILocationSelectFormProps {}
 interface IFormInputs {
 	location: string
 }
 
-const CitySelection: React.FC<ICitySelectionProps> = (props) => {
+const LocationSelectForm: React.FC<ILocationSelectFormProps> = (props) => {
 	const { handleSubmit, watch, control } = useForm<IFormInputs>()
 	const dispatch = useDispatch()
 	const targetValue = watch('location')
@@ -28,25 +28,23 @@ const CitySelection: React.FC<ICitySelectionProps> = (props) => {
 	}, [targetValue, handleSubmit, memoOnSubmit])
 
 	return (
-		<>
-			<form onSubmit={handleSubmit(memoOnSubmit)}>
-				<Controller
-					name='location'
-					control={control}
-					defaultValue=''
-					render={({ field }) => (
-						<Input
-							label='location'
-							placeholder='Search location'
-							hideLabel
-							fullwidth
-							{...field}
-						/>
-					)}
-				/>
-			</form>
-		</>
+		<form onSubmit={handleSubmit(memoOnSubmit)}>
+			<Controller
+				name='location'
+				control={control}
+				defaultValue=''
+				render={({ field }) => (
+					<Input
+						label='location'
+						placeholder='Search location'
+						hideLabel
+						fullwidth
+						{...field}
+					/>
+				)}
+			/>
+		</form>
 	)
 }
 
-export default CitySelection
+export default LocationSelectForm

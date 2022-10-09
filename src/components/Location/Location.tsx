@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
-import CitySelection from '../CitySelection/CitySelection'
-import { Container } from '../common/Containers/Containers'
+import CitySelection from './LocationSelectForm/LocationSelectForm'
+import { Container } from '../common/Layout/Layout'
 
 export interface ILocationProps {}
 

@@ -16,7 +16,7 @@ export type TBox = {
 	error?: boolean
 	hideLabel?: boolean
 }
-export const Box = styled.div<TBox>(
+export const FieldBox = styled.div<TBox>(
 	({ disabled, inFocus, error, hideLabel, theme }) => css`
 		position: relative;
 		display: inline-flex;
@@ -39,9 +39,6 @@ export const Box = styled.div<TBox>(
 			: '0px'};
 		color: ${disabled ? theme.colors.font.disabled : theme.colors.font.primary};
 		z-index: 0;
-		-webkit-box-shadow: ${theme.shadows.container};
-		-moz-box-shadow: ${theme.shadows.container};
-		box-shadow: ${theme.shadows.container};
 		&:hover {
 			outline-width: ${!error && !inFocus && !disabled && theme.control.borderWidth};
 			outline-color: ${!error &&

@@ -1,25 +1,27 @@
-import Card from '../Card/Card'
-import CardLoader from '../Card/Card.loader'
+import Card from './Card/Card'
+import CardLoader from './Card/Card.loader'
 import { Item, List } from './CardList.styled'
 
-const CardsLoader = [1, 2, 3, 4].map((item) => (
-	<Item key={item}>
-		<CardLoader />
-	</Item>
-))
+const CardsLoader = Array(4)
+	.fill(0)
+	.map((item, i) => (
+		<Item key={i}>
+			<CardLoader />
+		</Item>
+	))
 
 type TParams = { name: string; data: string }
 export interface ICardListProps {
 	loading: boolean
 	params: TParams[]
-	wrap?: boolean
+	wrapped?: boolean
 }
 
 const CardList: React.FC<ICardListProps> = (props) => {
-	const { loading, params, wrap } = props
+	const { loading, params, wrapped } = props
 
 	return (
-		<List wrap={wrap}>
+		<List wrapped={wrapped}>
 			{!loading
 				? params.map((item, index) => (
 						<Item key={index}>
