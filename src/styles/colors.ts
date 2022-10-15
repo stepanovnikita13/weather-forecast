@@ -8,10 +8,11 @@ const COLORS_SYSTEM = {
 	primary700: '#9F7626',
 	primary800: '#805A18',
 	primary900: '#6A450E',
+	primary_alpha10: 'rgba(222, 181, 77, .6)',
 
 	white: '#fff',
 	white100: '#f7f7f7',
-	white_alpha40: 'rgba(255, 255, 255, .4)',
+	white_alpha40: 'rgba(255, 255, 255, .35)',
 
 	black: '#000',
 	black900: '#242424',
@@ -53,4 +54,5 @@ const COLORS_SYSTEM = {
 	warning: '#fdcb6e',
 }
 
+export type TColors = typeof COLORS_SYSTEM
 export default COLORS_SYSTEM

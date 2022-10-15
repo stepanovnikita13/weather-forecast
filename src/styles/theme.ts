@@ -1,4 +1,4 @@
-import COLORS from './colors'
+import COLORS, { TColors } from './colors'
 import variables, { TVariables } from './variables'
 
 const commonColors = {
@@ -54,6 +54,7 @@ export const getTheme = (themeType: TThemeType): TTheme => ({
 	colors: {
 		...commonColors,
 		...theme[themeType],
+		palette: { ...COLORS },
 	},
 	...variables,
 	themeType,
@@ -61,9 +62,10 @@ export const getTheme = (themeType: TThemeType): TTheme => ({
 
 export type TThemeColors = typeof theme.light
 export type TCommonColors = typeof commonColors
+export type TPalette = { palette: TColors }
 export type TThemeType = 'light' | 'dark'
 export type TTheme = TVariables & {
-	colors: TThemeColors & TCommonColors
+	colors: TThemeColors & TCommonColors & TPalette
 	themeType: TThemeType
 }
 
