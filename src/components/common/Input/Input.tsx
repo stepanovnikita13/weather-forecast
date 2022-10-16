@@ -54,27 +54,21 @@ const Input = forwardRef<Ref, IInputProps>((props, ref) => {
 			>
 				{label}
 			</Label>
-			<Box>
-				<FieldBox
+
+			<FieldBox disabled={disabled} error={error} hideLabel={hideLabel} inFocus={focused}>
+				<InputStyled
+					ref={ref}
+					id={name}
+					aria-label={label}
 					disabled={disabled}
-					error={error}
 					hideLabel={hideLabel}
 					inFocus={focused}
-				>
-					<InputStyled
-						ref={ref}
-						id={name}
-						aria-label={label}
-						disabled={disabled}
-						hideLabel={hideLabel}
-						inFocus={focused}
-						onFocus={handlerFocus}
-						onBlur={handlerBlur}
-						onChange={handlerChange}
-						{...rest}
-					/>
-				</FieldBox>
-			</Box>
+					onFocus={handlerFocus}
+					onBlur={handlerBlur}
+					onChange={handlerChange}
+					{...rest}
+				/>
+			</FieldBox>
 		</Wrapper>
 	)
 })

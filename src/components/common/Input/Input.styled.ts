@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/macro'
+import { Box } from '../Layout/Layout'
 
 export type TWrapper = {
 	readonly fullwidth?: boolean
@@ -16,7 +17,7 @@ export type TBox = {
 	error?: boolean
 	hideLabel?: boolean
 }
-export const FieldBox = styled.div<TBox>(
+export const FieldBox = styled(Box)<TBox>(
 	({ disabled, inFocus, error, hideLabel, theme }) => css`
 		position: relative;
 		display: inline-flex;
