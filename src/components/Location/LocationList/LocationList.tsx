@@ -1,5 +1,9 @@
+import Icon from '../../common/Icons/Icon'
+import { Container } from '../../common/Layout/Layout'
 import { List } from '../../common/List/List'
 import LocationItem from './LocationItem/LocationItem'
+import LocationListLoader from './LocationList.loader'
+import { Description, Inner } from './LocationList.styled'
 
 export type TLocation = {
 	id: number
@@ -20,12 +24,33 @@ const LocationList: React.FC<ILocationListProps> = (props) => {
 		onSaveLocation,
 		onSelectLocation,
 	}
+
 	if (loading) {
-		return <div>loading...</div>
+		return (
+			<Container>
+				<LocationListLoader />
+			</Container>
+		)
 	}
+
 	if (locations.length === 0) {
-		return <div>empty</div>
+		return (
+			<Container>
+				<Inner>
+					<Icon name='location' size='xxl' />
+					<h4>
+						Location list
+						<br />
+						is empty!
+					</h4>
+					<Description>
+						Add a location to your favorites or start typing in search
+					</Description>
+				</Inner>
+			</Container>
+		)
 	}
+
 	return (
 		<nav>
 			<List>

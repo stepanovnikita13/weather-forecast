@@ -1,4 +1,4 @@
-import styled, { css, ThemeProvider } from "styled-components"
+import styled, { css, ThemeProvider } from "styled-components/macro"
 import { GlobalStyle } from '../src/styles/GlobalStyles'
 import { getTheme } from '../src/styles/theme'
 
