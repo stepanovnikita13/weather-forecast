@@ -40,6 +40,7 @@ const LocationItem: React.FC<ILocationItemProps> = (props) => {
 					onClick={onClick(onSelectLocation)}
 					onKeyDown={onKeyboardEvent(onSelectLocation)}
 					onDragEnd={resetFocus}
+					disabled={disabled}
 				>
 					{({ isActive }) => (
 						<Row style={{ height: '100%' }}>

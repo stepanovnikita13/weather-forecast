@@ -32,11 +32,17 @@ export const Title = styled.span<ITitle>(
 		}
 	`
 )
-export const Link = styled(NavLink)`
-	position: absolute;
-	display: block;
-	top: 0;
-	right: 50px;
-	bottom: 0;
-	left: 0;
-`
+interface ILink {
+	disabled?: boolean
+}
+export const Link = styled(NavLink)<ILink>(
+	({ disabled }) => css`
+		position: absolute;
+		display: block;
+		top: 0;
+		right: 50px;
+		bottom: 0;
+		left: 0;
+		${disabled && 'pointer-events: none'}
+	`
+)

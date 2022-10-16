@@ -67,4 +67,6 @@ export const Inner = styled.div(
 export const List = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
+	overflow: hidden;
+	padding-block: 1em;
 `
