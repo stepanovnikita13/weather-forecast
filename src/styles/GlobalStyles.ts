@@ -45,13 +45,17 @@ export const GlobalStyle = createGlobalStyle(
 
 		${headings.map(
 			(h: THeadings) => `
-		${h} {
-			font-size: ${theme.font[h].size};
-			font-weight: ${theme.font[h].weight};
-			line-height: ${theme.font[h].lineHeight};
-		}
-	`
+				${h} {
+					font-size: ${theme.font[h].size};
+					font-weight: ${theme.font[h].weight};
+					line-height: ${theme.font[h].lineHeight};
+				}
+			`
 		)}
+
+		a, a:-webkit-any-link {
+			color: unset;
+		}
 
 		.hidden {
 			border: 0;

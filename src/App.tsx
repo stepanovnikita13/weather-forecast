@@ -12,7 +12,7 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 		children: [
 			{
-				path: 'weather/:locationName',
+				path: 'location/:locationName',
 				element: <div>Weather data</div>,
 			},
 		],

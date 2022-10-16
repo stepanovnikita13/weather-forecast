@@ -7,13 +7,14 @@ export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Container = styled.div<IContainerProps>`
-	margin-inline: ${({ indentLess }) => (indentLess ? '0 !important' : '1rem')};
+	width: 100%;
+	padding-inline: ${({ indentLess }) => (indentLess ? '0 !important' : '1rem')};
 	padding-block: ${({ pb, theme }) => pb && theme.indent(pb)};
 	@media ${device.tabletS} {
-		margin-inline: 1.5rem;
+		padding-inline: 1.5rem;
 	}
 	@media ${device.laptopS} {
-		margin-inline: 2rem;
+		padding-inline: 2rem;
 	}
 `
 

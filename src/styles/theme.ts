@@ -1,4 +1,4 @@
-import COLORS from './colors'
+import COLORS, { TColors } from './colors'
 import variables, { TVariables } from './variables'
 
 const commonColors = {
@@ -19,9 +19,10 @@ const theme = {
 			container: COLORS.skyblue100,
 			default: COLORS.skyblue300,
 			disabled: COLORS.greyBlue300,
+			loader: COLORS.greyBlue400,
 			loaderAnimation: COLORS.greyBlue200,
 			overlay: COLORS.black_aplha50,
-			sidebar: COLORS.greyBlue400,
+			sidebar: COLORS.skyblue100,
 		},
 		font: {
 			disabled: COLORS.greyBlue500,
@@ -38,6 +39,7 @@ const theme = {
 			container: COLORS.darkblue300,
 			default: COLORS.darkblue500,
 			disabled: COLORS.greyBlue700,
+			loader: COLORS.darkblue300,
 			loaderAnimation: COLORS.greyBlue600,
 			overlay: COLORS.black_aplha60,
 			sidebar: COLORS.darkblue600,
@@ -54,6 +56,7 @@ export const getTheme = (themeType: TThemeType): TTheme => ({
 	colors: {
 		...commonColors,
 		...theme[themeType],
+		palette: { ...COLORS },
 	},
 	...variables,
 	themeType,
@@ -61,9 +64,10 @@ export const getTheme = (themeType: TThemeType): TTheme => ({
 
 export type TThemeColors = typeof theme.light
 export type TCommonColors = typeof commonColors
+export type TPalette = { palette: TColors }
 export type TThemeType = 'light' | 'dark'
 export type TTheme = TVariables & {
-	colors: TThemeColors & TCommonColors
+	colors: TThemeColors & TCommonColors & TPalette
 	themeType: TThemeType
 }
 
