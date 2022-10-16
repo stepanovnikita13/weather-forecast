@@ -19,10 +19,10 @@ const theme = {
 			container: COLORS.skyblue100,
 			default: COLORS.skyblue300,
 			disabled: COLORS.greyBlue300,
-			loader: COLORS.skyblue100,
+			loader: COLORS.greyBlue400,
 			loaderAnimation: COLORS.greyBlue200,
 			overlay: COLORS.black_aplha50,
-			sidebar: COLORS.greyBlue400,
+			sidebar: COLORS.skyblue100,
 		},
 		font: {
 			disabled: COLORS.greyBlue500,
